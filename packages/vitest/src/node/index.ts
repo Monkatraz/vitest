@@ -14,6 +14,7 @@ import { MocksPlugin } from '../plugins/mock'
 import { DefaultReporter } from '../reporters/default'
 import { ReportersMap } from '../reporters'
 import { cleanCoverage, reportCoverage } from '../coverage'
+import { SWCCoveragePlugin } from '../plugins/swc-coverage'
 import type { WorkerPool } from './pool'
 import { StateManager } from './state'
 import { resolveConfig } from './config'
@@ -327,6 +328,7 @@ export async function createVitest(options: UserConfig, viteOverrides: ViteUserC
             (await import('../api/setup')).setup(ctx)
         },
       } as VitePlugin,
+      SWCCoveragePlugin(),
       MocksPlugin(),
     ],
     server: {

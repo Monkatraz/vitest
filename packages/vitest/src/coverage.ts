@@ -77,6 +77,14 @@ export interface C8Options {
   exclude?: string[]
   include?: string[]
   skipFull?: boolean
+  /**
+   * Use SWC instead of esbuild when coverage is enabled.
+   * This improves the accuracy of coverage reports, and also
+   * enables the usage of code coverage comments in your code.
+   *
+   * @default false
+   */
+  swc?: boolean
 
   // c8 options, not sure if we should expose them
   /**
@@ -106,6 +114,7 @@ export function resolveC8Options(options: C8Options, root: string): ResolvedC8Op
     exclude: defaultExcludes,
     reporter: ['text', 'html'],
     allowExternal: false,
+    swc: false,
     ...options as any,
   }
 

@@ -61,6 +61,7 @@
   },
   "devDependencies": {
     "@antfu/install-pkg": "^0.1.0",
+    "@swc/core": "^1.2.124",
     "@types/diff": "^5.0.2",
     "@types/jsdom": "^16.2.14",
     "@types/micromatch": "^4.0.2",
@@ -97,12 +98,16 @@
     "ws": "^8.4.0"
   },
   "peerDependencies": {
+    "@swc/core": "*",
     "c8": "*",
     "happy-dom": "*",
     "jsdom": "*",
     "vite": "^2.7.1"
   },
   "peerDependenciesMeta": {
+    "@swc/core": {
+      "optional": true
+    },
     "c8": {
       "optional": true
     },
